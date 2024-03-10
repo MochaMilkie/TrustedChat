@@ -1,4 +1,4 @@
-name: Trusted Chat
+name: TrustedChat
 version: '${project.version}'
 main: me.mocha.trustedchat.TrustedChat
 api-version: '1.20'
