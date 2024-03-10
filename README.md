@@ -18,4 +18,4 @@ Commands:
 
   /listtrustedplayers
     trustedchat.listall
-      Lists all players who posess the trushedchat.trusted permission **Possibly not consistent for now)**
+      Lists all players who posess the trushedchat.trusted permission **Possibly not consistent for now**
