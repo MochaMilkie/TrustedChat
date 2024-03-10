@@ -9,7 +9,7 @@
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>Trusted Chat</name>
+  <name>TrustedChat</name>
 
   <properties>
     <java.version>1.8</java.version>
