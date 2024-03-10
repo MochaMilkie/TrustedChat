@@ -3,6 +3,7 @@ package me.mocha.trustedchat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 public class ReloadConfig implements CommandExecutor {
 
@@ -13,7 +14,7 @@ public class ReloadConfig implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, Command command, String label, String[] args) {
         if (label.equalsIgnoreCase("reloadtrustedchat")) {
             if (!sender.hasPermission("trustedchat.reload")) {
                 sender.sendMessage("You don't have permission to use this command.");

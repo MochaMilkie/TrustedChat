@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1db4ae4-df9d-4bed-a6e2-2c42f89306a4" name="Changes" comment="Corrected space in plugin name.">
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/TrustedChatListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/ListTrustedPlayersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/ListTrustedPlayersCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/ReloadConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/ReloadConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/TCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/TCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/ToggleTrustedChatCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/ToggleTrustedChatCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/TrustedChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mocha/trustedchat/TrustedChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710036797479</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Corrected space in plugin name.">
+      <option name="closed" value="true" />
+      <created>1710037002051</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710037002051</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -1,4 +1,29 @@
 name: TrustedChat
-version: '${project.version}'
+version: 1.0.0
+description: A plugin for managing trusted chat messages.
+author: Mocha
 main: me.mocha.trustedchat.TrustedChat
-api-version: '1.20'
+api-version: 1.20
+commands:
+  t:
+    description: Sends a message in tchat.
+    usage: /t <message>
+  tc:
+    description: Toggles trusted chat messages unless a message is provided, then send message instead without toggling tchat.
+    usage: /tc <optional message>
+  reloadtrustedchat:
+    description: Reloads the TrustedChat configuration.
+    usage: /reloadtrustedchat
+  listtrustedplayers:
+    description: Lists all currently trusted players.
+    usage: /listalltrustedplayers
+permissions:
+  trustedchat.trusted:
+    description: Allows access to trusted chat features.
+    default:
+  trustedchat.reload:
+    description: Allows reloading of the TrustedChat configuration.
+    default:
+  trustedchat.listall:
+    description: Lists all trusted players.
+    default:

@@ -19,6 +19,7 @@ public class TrustedChat extends JavaPlugin {
     private FileConfiguration config;
     private String prefix;
 
+
     @Override
     public void onEnable() {
         getLogger().info("TrustedChat by Mocha (mochamilkrl)");
@@ -26,36 +27,38 @@ public class TrustedChat extends JavaPlugin {
         getLogger().info("Loading config.");
 
         // Load configuration
-        try {
-            saveDefaultConfig();
-            config = getConfig();
+        config = getConfig();
 
-            // Load trusted players from configuration
-            if (config.contains("trusted_players")) {
-                trustedPlayers.addAll(config.getStringList("trusted_players"));
-            }
-        } catch (Exception e) {
-            getLogger().severe("An error occurred while loading the configuration:");
-            e.printStackTrace();
+        // Set defaults (after loading the configuration) **DUH**
+        config.addDefault("prefix", "[CHANGE ME IN CONFIG]");
+        config.addDefault("trusted_players", new ArrayList<>());
+        config.options().copyDefaults(true);
+        saveConfig();
+
+        // Load trusted players from configuration
+        if (config.contains("trusted_players")) {
+            trustedPlayers.addAll(config.getStringList("trusted_players"));
         }
 
         // Register the commands
-        getCommand("tchat").setExecutor(new ToggleTrustedChatCommand(this));
-        getCommand("reloadtrustedchat").setExecutor(new ReloadConfig(this));
         getCommand("t").setExecutor(new TCommand(this));
+        getCommand("tc").setExecutor(new ToggleTrustedChatCommand(this));
+        getCommand("reloadtrustedchat").setExecutor(new ReloadConfig(this));
         getCommand("listtrustedplayers").setExecutor(new ListTrustedPlayersCommand(this));
         // Register events
-        Listener trustedChatJoinListener = (Listener) new ListTrustedPlayersCommand(this);
-        getServer().getPluginManager().registerEvents(trustedChatJoinListener, this);
-        getServer().getPluginManager().registerEvents((Listener) new ListTrustedPlayersCommand(this), this);
+        getServer().getPluginManager().registerEvents(new TrustedChatListener(this), this);
+        //Listener trustedChatJoinListener = (new ListTrustedPlayersCommand(this);
+        //getServer().getPluginManager().registerEvents(trustedChatJoinListener, this);
+        //getServer().getPluginManager().registerEvents((Listener) new ListTrustedPlayersCommand(this), this);
         getLogger().info("TrustedChat has loaded successfully.");
     }
+
     public void reloadConfiguration() {
         reloadConfig();
         config = getConfig();
 
         // Reload chat prefix
-        prefix = ChatColor.translateAlternateColorCodes('&', config.getString("chat-prefix"));
+        prefix = ChatColor.translateAlternateColorCodes('&', config.getString("prefix"));
 
         // Re-populate trustedPlayers set after reloading configuration
         trustedPlayers.clear();
@@ -63,7 +66,7 @@ public class TrustedChat extends JavaPlugin {
             trustedPlayers.addAll(config.getStringList("trusted_players"));
         }
     }
-    
+
     // Method to add a player to the trusted list
     public void addTrustedPlayer(String playerName) {
         trustedPlayers.add(playerName);
@@ -82,12 +85,12 @@ public class TrustedChat extends JavaPlugin {
     }
 
     public void sendToTrustedChat(Player player, String message) {
-
+        prefix = ChatColor.translateAlternateColorCodes('&', config.getString("prefix"));
         // Iterate through all online players to check for trusted chat permission
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             if (onlinePlayer.hasPermission("trustedchat.trusted")) {
                 onlinePlayer.sendMessage(prefix + " " + player.getName() + ": " + message);
-                getLogger().info("[Trusted Chat] " + player.getName() + ": " + message); // Send message to console
+                getLogger().info( player.getName() + ": " + message + "[Trusted Chat]"); // Send message to console
             }
         }
     }
@@ -118,6 +121,7 @@ public class TrustedChat extends JavaPlugin {
         }
         return false; // Default value if metadata not found
     }
+
     @Override
     public void onDisable() {
         // Save trusted players to configuration

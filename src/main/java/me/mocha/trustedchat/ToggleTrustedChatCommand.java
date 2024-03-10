@@ -29,7 +29,19 @@ public class ToggleTrustedChatCommand implements CommandExecutor {
         }
 
         // Execute command logic
-        plugin.toggleTrustedChat(player);
-        return true;
+        if (label.equalsIgnoreCase("tc")) {
+            if (args.length == 0) {
+                // Toggle trusted chat for the player if no message provided
+                plugin.toggleTrustedChat(player);
+
+            } else {
+                // Join all arguments to form the message
+                String message = String.join(" ", args);
+                // Send message to trusted chat
+                plugin.sendToTrustedChat(player, message);
+            }
+            return true;
+        }
+        return false;
     }
 }

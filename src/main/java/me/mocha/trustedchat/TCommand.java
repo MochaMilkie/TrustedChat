@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class TCommand implements CommandExecutor {
 
@@ -14,7 +15,7 @@ public class TCommand implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, Command command, String label, String[] args) {
         // Check if the command sender is a player
         if (!(sender instanceof Player)) {
             sender.sendMessage("This command can only be executed by a player.");
